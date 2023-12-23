@@ -7,14 +7,14 @@ import { Appcontext } from "./context/Appcontext";
 
 export default function App() { 
 
-  const {fetchdata}=useContext(Appcontext);
+  const {fetchData} = useContext(Appcontext);
 
   useEffect(()=>{
-    fetchdata();
+    fetchData();
   },[])
-  
+
   return (
-    <div>
+    <div className="w-screen h-screen flex flex-col items-center">
       <Header/>
       <Blogs/>
       <Footer/>

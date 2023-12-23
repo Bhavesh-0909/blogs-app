@@ -4,7 +4,7 @@ import {baseUrl} from "../baseUrl";
 export const Appcontext = createContext();
 
     
-export default function AppContextProvider({Children}) {
+export default function AppContextProvider({children}) {
 
     const [page, setPage]=useState(1);
     const [loading, setLoading]= useState(false);
@@ -17,6 +17,9 @@ export default function AppContextProvider({Children}) {
         try{
             const data = await fetch(url);
             const output = await data.json();
+            setPage(output.page);
+            setPost(output.posts);
+            setTotalpage(output.totalPages);
         }
         catch{
             console.log("error");
@@ -26,7 +29,7 @@ export default function AppContextProvider({Children}) {
 
     function handeler(page){
         setPage(page);
-        fetchData();
+        fetchData(page);
     }
 
     const value={
@@ -42,7 +45,7 @@ export default function AppContextProvider({Children}) {
         handeler
     }
 
-    return <Appcontext.Provider value={value}>
-        {Children}
+    return <Appcontext.Provider value={value} >
+        {children}
     </Appcontext.Provider>
 }
