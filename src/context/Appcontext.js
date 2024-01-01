@@ -1,8 +1,7 @@
-import { Children, createContext, useState } from "react";
+import { createContext, useState } from "react";
 import {baseUrl} from "../baseUrl";
 
 export const Appcontext = createContext();
-
     
 export default function AppContextProvider({children}) {
 
@@ -11,12 +10,19 @@ export default function AppContextProvider({children}) {
     const [totalpage, setTotalpage]= useState(null);
     const [post, setPost]=useState([]);
 
-    async function fetchData(page=1){
+    async function fetchData(page=1, tag=null, categorie=null,){
         setLoading(true);
-        let url = `${baseUrl}?page=${page}`
+        let url = `${baseUrl}?page=${page}`;
+        if(tag) {
+            url += `&tag=${tag}`;
+          }
+        if(categorie) {
+            url += `&category=${categorie}`;
+          }
         try{
             const data = await fetch(url);
             const output = await data.json();
+            console.log(output);
             setPage(output.page);
             setPost(output.posts);
             setTotalpage(output.totalPages);
