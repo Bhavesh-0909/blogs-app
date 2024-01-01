@@ -10,7 +10,7 @@ function Title() {
   const [relatedBlog, setRelatedblog]=useState([]);
   const location = useLocation();
   const blogId = location.pathname.split("/").at(-1);
-  console.log(blogId);
+  
 
 
     async function fetchData(){
@@ -19,7 +19,6 @@ function Title() {
         try{
             const data = await fetch(url);
             const output = await data.json();
-            console.log(output);
             setBlog(output.blog);
             setRelatedblog(output.relatedBlogs);
         }
@@ -37,7 +36,6 @@ function Title() {
     }
   },[location.pathname]);
 
-  console.log(blog)
 
   return (
     <div className='max-w-[600px] w-11/12 flex flex-col gap-5 mt-20 pb-20'>

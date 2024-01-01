@@ -4,11 +4,10 @@ import { Appcontext } from '../context/Appcontext';
 import Blogs from '../components/Blogs';
 
 function Categorie() {
-
+  
   const navigate = useNavigate();
   const location = useLocation();
   const categorie = location.pathname.split("/").at(-1);
-  const {post}=useContext(Appcontext)
 
   return (
     <div className='mt-20'>

@@ -11,7 +11,7 @@ import Title from "./pages/Title";
 
 export default function App() { 
 
-  const {fetchData , blog} = useContext(Appcontext);
+  const {fetchData} = useContext(Appcontext);
 
   const [searchParams, setSearchParams]= useSearchParams();
   const location = useLocation();
