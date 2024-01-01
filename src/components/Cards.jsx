@@ -3,10 +3,6 @@ import { NavLink } from 'react-router-dom'
 
 const Cards = ({post}) => {
 
-  console.log(post);
-
-  const tags = post.tags;
-  console.log(tags);
 
     return (
     <div>
@@ -27,7 +23,7 @@ const Cards = ({post}) => {
 
         <p 
         className='text-xs mt-2 flex flex-wrap gap-x-2'>
-          {tags.map((tag, index)=>
+          {post.tags.map((tag, index)=>
             <NavLink key={index} to={`/tag/${tag}`}>
               <span 
                 className='text-blue-500 hover:text-blue-800 underline'>

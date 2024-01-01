@@ -12,9 +12,14 @@ function Categorie() {
 
   return (
     <div className='mt-20'>
-      <button onClick={()=> navigate(-1)}>Back</button>
-      <p>Blog on <span>{categorie}</span></p>
-    {<Blogs/> }
+
+      <div  className='flex gap-3 -mb-16 items-center'>
+        <button className='px-2 py-1 border border-black rounded-md'
+        onClick={()=> navigate(-1)}>Back</button>
+        <p className='font-bold '>Blog on <span>{categorie}</span></p>
+      </div>
+  
+      <Blogs/>
 
     </div>
   )

@@ -11,7 +11,7 @@ import Title from "./pages/Title";
 
 export default function App() { 
 
-  const {fetchData} = useContext(Appcontext);
+  const {fetchData , blog} = useContext(Appcontext);
 
   const [searchParams, setSearchParams]= useSearchParams();
   const location = useLocation();
@@ -31,7 +31,9 @@ export default function App() {
     else{
       fetchData(Number(page));
     }
-  },[location.pathname, location.search])
+  },[location.pathname, location.search]);
+
+  
 
   return (
     <div className="w-screen h-screen flex flex-col items-center">
@@ -40,9 +42,10 @@ export default function App() {
         <Route path="/" element={<Blogs/>}/>
         <Route path="/categorie/:categid" element={<Categorie/>}/>
         <Route path="/tag/:tagid" element={<Tag/>}/>
-        <Route path="/title/:titid" element={<Title/>}/>
+        <Route path="/blog/:titid" element={<Title/>}/>
       </Routes>
-      <Footer/>
+      {location.pathname.includes("blog")? (<div></div>): <Footer/>}
+      
     </div>
   );
 }

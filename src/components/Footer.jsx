@@ -10,7 +10,7 @@ const Footer = () => {
             <div className='flex gap-3'>
                 { page > 1 &&
                     <button className='px-2 py-1 border border-black rounded-md'
-                    onClick={()=> handeler(page - 1)}>Previous</button>
+                    onClick={()=> handeler(page - 1,)}>Previous</button>
                 }
                 { page < totalpage &&
                     <button className='px-2 py-1 border border-black rounded-md'
