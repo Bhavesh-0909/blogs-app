@@ -7,7 +7,7 @@ function Categorie() {
   
   const navigate = useNavigate();
   const location = useLocation();
-  const categorie = location.pathname.split("/").at(-1);
+  const categorie = location.pathname.split("/").at(-1).replace("%20"," ");
 
   return (
     <div className='mt-20'>

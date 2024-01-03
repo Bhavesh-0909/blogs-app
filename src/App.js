@@ -39,12 +39,12 @@ export default function App() {
     <div className="w-screen h-screen flex flex-col items-center">
       <Header/>
       <Routes>
-        <Route path="/" element={<Blogs/>}/>
+        <Route path="/blogs-app" element={<Blogs/>}/>
         <Route path="/categorie/:categid" element={<Categorie/>}/>
         <Route path="/tag/:tagid" element={<Tag/>}/>
         <Route path="/blog/:titid" element={<Title/>}/>
       </Routes>
-      {location.pathname.includes("blog")? (<div></div>): <Footer/>}
+      {!location.pathname.includes("blogs-app") && !location.pathname.includes("tag") ? (<div></div>): <Footer/>}
       
     </div>
   );
